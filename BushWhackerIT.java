@@ -1,18 +1,34 @@
-package axonos.bushwhacker;
+package axonos.bushwhacker.tools;
 
-import net.minecraft.item.Items;
+import axonos.bushwhacker.util.RegistryHandler;
 import net.minecraft.item.IItemTier;
 import net.minecraft.item.crafting.Ingredient;
 
-public class BushWhackerIT implements IItemTier {
-    public int max_uses = 2301;
-    public int efficiency = 0;
-    public int atk_dmg = 10;
-    public int harvest_lvl = 0;
-    public int enchant = 0;
+import java.util.function.Supplier;
 
-    Ingredient rep_mat;
+public enum BushWhackerIT implements IItemTier {
 
+    BUSH(2301, 1, 10, 0, 0, () -> {
+        return Ingredient.fromItems(RegistryHandler.BUSHWHACKER.get());
+    });
+
+    private final int max_uses;
+    private final float efficiency;
+    private final int atk_dmg;
+    private final int harvest_lvl;
+    private final int enchant;
+    private final Supplier<Ingredient> rep_mat;
+
+    BushWhackerIT(int max_uses, float efficiency, int atk_dmg, int harvest_lvl, int enchant, Supplier<Ingredient> rep_mat) {
+        this.max_uses = max_uses;
+        this.efficiency = efficiency;
+        this.atk_dmg = atk_dmg;
+        this.harvest_lvl = harvest_lvl;
+        this.enchant = enchant;
+        this.rep_mat = rep_mat;
+    }
+
+    @Override
     public int getMaxUses() {
         return max_uses;
     }
@@ -34,7 +50,7 @@ public class BushWhackerIT implements IItemTier {
     }
 
     public Ingredient getRepairMaterial() {
-        return rep_mat;
-    };
+        return rep_mat.get();
+    }
     }
 
