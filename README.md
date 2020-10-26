@@ -1,8 +1,5 @@
 # BushWhacker
-Adds a custom sword to minecraft,called the "Bush Whacker". 
-Custom model and texture created in BlockBench (Will use an OBJ model made in Blender once I figure out how to load OBJ models in Forge).
-The current model looks cool and serves its purpose, so the OBJ will take a backseat.
-Next step is implementing the sword's events, firstly to cut grass blocks in an area around the player, hence the name. Once I think of other cool mechanics, I'll add those too.
+Adds a custom sword to minecraft, called the "Bush Whacker". Custom model and texture created in BlockBench. Next step is implementing the sword's mechanics, firstly to break grass blocks in an area around the player, hence the name. Once I think of other cool mechanics, I'll add those too.
 
 # BushWhackerMod.java
 Main driver class of the mod. Calls the RegistryInit method to register the mod's new item.
